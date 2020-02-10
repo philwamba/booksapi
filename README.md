@@ -12,4 +12,4 @@
   - [x] Implement HTTP GET for all books
   - [x] Implement query search by Country & Language
   - [x] Implement find book by ID
-  - [x] Implement POST (Add new books to database)
+  - [ ] Implement POST (Add new books to database)
