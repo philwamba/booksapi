@@ -13,3 +13,4 @@
   - [x] Implement query search by Country & Language
   - [x] Implement find book by ID
   - [ ] Implement POST (Add new books to database)
+- [ ] Implement Error Handling
