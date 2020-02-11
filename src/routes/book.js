@@ -3,6 +3,12 @@ const Book = require('../models/bookModel');
 
 const bookRouter = express.Router();
 
+bookRouter.post('/books', (req, res) => {  
+  const book = new Book(req.body);
+  book.save();
+  return res.status(201).json(book);
+});
+
 bookRouter.get('/books', (req, res) => {
   const query = {};
 
@@ -14,13 +20,16 @@ bookRouter.get('/books', (req, res) => {
     query.language = req.query.language;
   }
 
-  Book.find(query, (err, books) => {
-    if (!err) {
+  Book.find(query, (error, books) => {
+    if (!error) {
       return res.json(books);
     }
-    return res.json({ error: err });
+    return res.json({ 
+      error, 
+    });
   });
 });
+  
 
 bookRouter.get('/books/:bookId', (req, res) => {
   Book.findById(req.params.bookId, (err, book) => {
