@@ -58,4 +58,34 @@ bookRouter.put('/books/:bookId', (req, res) => {
   });
 });
 
+bookRouter.patch('/books/:bookId', (req, res) => {
+  Book.findById(req.params.bookId, (err, book) => {
+    if (!err) {
+      // eslint-disable-next-line no-underscore-dangle
+      if (req.body._id) {
+        // eslint-disable-next-line no-underscore-dangle
+        delete req.body._id;
+      }
+      Object.entries(req.body).forEach((item) => {
+        const key = item[0];
+        const value = item[1];
+        book[key] = value;
+      });
+      book.save();
+      return res.json(book);
+    }
+    return res.json({ error: err });
+  });
+});
+
+bookRouter.delete('/books/:bookId', (req, res) => {
+  Book.findById(req.params.bookId, (err, book) => {
+    if (!err) {
+      book.delete();
+      return res.json({ msg: 'success' });
+    }
+    return res.json({ error: err });
+  });
+});
+
 module.exports = bookRouter;

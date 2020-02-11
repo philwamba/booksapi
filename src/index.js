@@ -9,6 +9,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const bookRouter = require('./routes/book');
+const notFound = require('./middlewares/notFound');
+const errorHandler = require('./middlewares/errorHandler');
 const db = require('./helpers/db');
 
 const app = express();
@@ -28,11 +30,13 @@ app.use(express.json());
 const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-  const response = { msg: 'Hello there 👋' };
+  const response = { msg: 'It works 👋' };
   res.json(response);
 });
 
 app.use('/api/v1', bookRouter);
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
