@@ -11,10 +11,12 @@
   - [x] Wire Up `mongoose` Connection
   - [x] Create Books Mongoose Model
 - [x] Setup API Routing
-  - [x] Implement HTTP GET Books (Route Returns All Books)
-  - [x] Implement Books Query (Country & Language)
-  - [x] Implement Find Book by ID (Route Returns Single Book)
-  - [ ] Implement POST (Save New Book to Database)
+  - [x] Implement HTTP GET Books (API Return All Books)
+  - [x] Implement Books Query (Filter by Country or Language)
+  - [x] Implement Find Book by ID (API Return Single Book)
+  - [ ] Implement POST (Save New Book)
+  - [ ] Implement PUT (Replace Book)
+  - [ ] Implement PATCH (Update Book)
 - [ ] Implement Error Handling
   - [ ] Setup Not Found Middleware
   - [ ] Setup Error Middleware
