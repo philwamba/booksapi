@@ -14,10 +14,10 @@
   - [x] Implement HTTP GET Books (API return All Books)
   - [x] Implement Books Query (Filter by Country or Language)
   - [x] Implement Find Book by ID (API return Single Book)
-  - [ ] Implement POST (Save New Book)
+  - [x] Implement POST (Save New Book)
   - [ ] Implement PUT (Replace Book)
-  - [ ] Implement PATCH (Update Book)
-  - [ ] Implement DELETE (Delete Book)
-- [ ] Implement Error Handling
-  - [ ] Setup Not Found Middleware
-  - [ ] Setup Error Middleware
+  - [x] Implement PATCH (Update Book)
+  - [x] Implement DELETE (Delete Book)
+- [x] Implement Error Handling
+  - [x] Setup Not Found Middleware
+  - [x] Setup Error Middleware
