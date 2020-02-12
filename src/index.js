@@ -27,7 +27,7 @@ app.use(morgan('common'));
 app.use(helmet());
 app.use(express.json());
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 1337;
 
 app.get('/', (req, res) => {
   const response = { msg: 'It works 👋' };
@@ -35,10 +35,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1', bookRouter);
-app.use(notFound);
 app.use(errorHandler);
+app.use(notFound);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`Server running on http://localhost/${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
