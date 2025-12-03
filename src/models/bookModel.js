@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const { Schema } = mongoose;
+const { Schema } = mongoose
 
 const requiredString = {
-  type: String,
-  required: true,
-};
+    type: String,
+    required: true,
+}
 const requiredNumber = {
-  type: Number,
-  required: true,
-};
+    type: Number,
+    required: true,
+}
 
-const bookModel = new Schema(
-  {
+const bookModel = new Schema({
     author: requiredString,
     country: requiredString,
     imageLink: requiredString,
@@ -21,7 +20,17 @@ const bookModel = new Schema(
     pages: requiredNumber,
     title: requiredString,
     year: requiredNumber,
-  },
-);
+    summary: { type: String },
+    rating: { type: Number, default: 0 },
+    reviews: [
+        {
+            user: String,
+            comment: String,
+            rating: Number,
+        },
+    ],
+})
 
-module.exports = mongoose.model('Book', bookModel);
+bookModel.index({ title: 'text', author: 'text' })
+
+module.exports = mongoose.model('Book', bookModel)
